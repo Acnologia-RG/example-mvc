@@ -20,4 +20,5 @@
 		}
 		?>
 	</table>
+	<a href="<?= URL ?>song/create">Nieuw lied toevoegen</a>
 </div>
