@@ -13,12 +13,12 @@ function index()
 
 function create()
 {
-	echo "create";
+	render("song/create");
 }
 
 function createSave()
 {
-	echo "createsave";
+	var_dump($_POST);
 }
 
 function read()
