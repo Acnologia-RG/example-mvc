@@ -18,7 +18,14 @@ function create()
 
 function createSave()
 {
-	var_dump($_POST);
+	if (createSong()) {
+		header("location:" . URL . "song/index");
+		exit();
+	} else {
+		//er is iets fout gegaan..
+		header("location:" . URL . "error/error_db");
+		exit();	
+	}
 }
 
 function read()
@@ -36,7 +43,14 @@ function editSave()
 	echo "editSave";
 }
 
-function delete()
+function delete($id)
 {
-	echo "delete";
+	if (deleteSong($id)) {
+		header("location:" . URL . "song/index");
+		exit();
+	} else {
+		//er is iets fout gegaan..
+		header("location:" . URL . "error/error_delete");
+		exit();	
+	}
 }
