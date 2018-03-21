@@ -33,9 +33,13 @@ function read()
 	echo "read";
 }
 
-function edit()
+function edit($id)
 {
-	echo "edit";
+	$song = getSong($id);
+
+	render("song/edit", array(
+		"song" => $song
+	));
 }
 
 function editSave()

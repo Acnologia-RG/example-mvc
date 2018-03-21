@@ -14,6 +14,22 @@ function getAllSongs()
 	return $query->fetchAll();
 }
 
+function getSong($id)
+{
+	$db = openDatabaseConnection();
+
+	$sql = "SELECT * FROM song WHERE song_id = :id LIMIT 1";
+
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		":id" => $id
+	));
+
+	$db = null;
+
+	return $query->fetch();
+}
+
 function createSong()
 {
 	$artist = $_POST['artist'];
