@@ -28,9 +28,13 @@ function createSave()
 	}
 }
 
-function read()
+function read($id)
 {
-	echo "read";
+	$song = getSong($id);
+
+	render("song/read", array(
+		"song" => $song
+	));
 }
 
 function edit($id)
@@ -42,9 +46,15 @@ function edit($id)
 	));
 }
 
-function editSave()
+function editSave($id)
 {
-	echo "editSave";
+	if (editSong($id)) {
+		header("location:" . URL . "song/index");
+		exit();
+	} else {
+		header("location:" . URL . "error/error_404");
+		exit();
+	}
 }
 
 function delete($id)

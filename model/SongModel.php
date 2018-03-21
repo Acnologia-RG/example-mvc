@@ -77,3 +77,33 @@ function deleteSong($id)
 
 	return true;
 }
+
+function editSong($id=null)
+{
+	$artist = isset($_POST["artist"]) ? $_POST["artist"] : null;
+	$title = isset($_POST["title"]) ? $_POST["title"] : null;
+	$url = isset($_POST["url"]) ? $_POST["url"] : null;
+	
+	if ($id === null || $artist === null || $title === null || $url === null) {
+		return false;
+	}
+
+	$db = openDatabaseConnection();
+
+	$sql = "UPDATE song 
+			SET song_artist = :artist, song_name = :title, song_url = :url 
+			WHERE song_id = :id";
+
+	$query = $db->prepare($sql);
+
+	$query->execute(array(
+		":id" => $id,
+		":artist" => $artist,
+		":title" => $title,
+		":url" => $url
+	));
+
+	$db = null;
+
+	return true;
+}
