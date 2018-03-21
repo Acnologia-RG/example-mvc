@@ -32,14 +32,13 @@ function getSong($id)
 
 function createSong()
 {
-	$artist = $_POST['artist'];
-	$title = $_POST['title'];
-	$url = $_POST['url'];
-
-	if ($artist === '' || $title === '' || $url === '') {
+	$artist = isset($_POST["artist"]) ? $_POST["artist"] : null;
+	$title = isset($_POST["title"]) ? $_POST["title"] : null;
+	$url = isset($_POST["url"]) ? $_POST["url"] : null;
+	
+	if ($artist === null || $title === null || $url === null) {
 		return false;
 	}
-
 	//Database verbinding maken
 	$db = openDatabaseConnection();
 
