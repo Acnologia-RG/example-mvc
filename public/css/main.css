@@ -41,7 +41,6 @@ h2 {
 	margin: 0;
 }
 h2 ~ p {    /* only applies to p-elements on the main page */
-	text-transform: capitalize;
 	margin: 0;
 	position: relative;
 	top: -40px;     /* move person names to line up with the day number */

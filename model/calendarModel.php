@@ -34,7 +34,8 @@ function getcalendar($id)
 
 function createcalendar()
 {	
-	$person = isset($_POST["name"]) ? $_POST["name"] : null;
+	$Name = ucwords($_POST["name"]);
+	$person = isset($Name) ? $Name : null;
 	$day = isset($_POST["day"]) ? $_POST["day"] : null;
 	$month = isset($_POST["month"]) ? $_POST["month"] : null;
 	$year = isset($_POST["year"]) ? $_POST["year"] : null;
@@ -91,7 +92,8 @@ function deletecalendar($id)
 function editcalendar($id=null)
 {
 	$id = isset($_POST["id"]) ? $_POST["id"] : null;
-	$person = isset($_POST["name"]) ? $_POST["name"] : null;
+	$Name = ucwords($_POST["name"]);
+	$person = isset($Name) ? $Name : null;
 	$day = isset($_POST["day"]) ? $_POST["day"] : null;
 	$month = isset($_POST["month"]) ? $_POST["month"] : null;
 	$year = isset($_POST["year"]) ? $_POST["year"] : null;
