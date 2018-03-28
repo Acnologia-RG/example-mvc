@@ -68,10 +68,10 @@ function deleteConfirm($id)
 function delete($id)
 {	
 	$yes = $_POST["yes"];
-	if ($yes == "yes") {
-	if (deletecalendar($id)) {
-		header("location:" . URL . "calendar/index");
-		exit();
+	if ($yes === "yes") {
+		if (deletecalendar($id)) {
+			header("location:" . URL . "calendar/index");
+			exit();
 		} else {
 			//er is iets fout gegaan..
 			header("location:" . URL . "error/error_delete");
